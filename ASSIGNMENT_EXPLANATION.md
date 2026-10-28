@@ -1,6 +1,6 @@
 # Assignment 2: React Navigation — Detailed Implementation & Code Explanation Guide
 
-This document provides a comprehensive, step-by-step explanation of the entire **Pokémon Explorer** application. It details how each assignment requirement was met, which files and functions implement each concept, and how to explain the code during your viva evaluation.
+This document provides a comprehensive, step-by-step explanation of the entire **PokéTinder** application. It details how each assignment requirement was met, which files and functions implement each concept, and how to explain the code during your viva evaluation.
 
 ---
 
@@ -33,7 +33,7 @@ The application implements a combination of **Two Navigator Types**:
 Stack Navigator (AppNavigator)
 │
 ├── MainTabs Screen (Tab Navigator)
-│   ├── Home Screen ("Pokémon Explorer")
+│   ├── Home Screen ("PokéTinder")
 │   ├── Search Screen ("Search")
 │   ├── Collection Screen ("My Collection")
 │   └── Compare Screen ("Compare Pokémon")
@@ -172,7 +172,7 @@ In `TabNavigator.js`:
   component={HomeScreen}
   options={{
     title: 'Explorer',
-    headerTitle: 'Pokémon Explorer', // Custom Title 1
+    headerTitle: 'PokéTinder', // Custom Title 1
   }}
 />
 <Tab.Screen
@@ -235,7 +235,7 @@ useLayoutEffect(() => {
 // src/screens/HomeScreen.js
 useLayoutEffect(() => {
   navigation.setOptions({
-    headerTitle: 'Pokémon Explorer',
+    headerTitle: 'PokéTinder',
     headerRight: () => (
       <TouchableOpacity
         onPress={handleRandomPokemon}

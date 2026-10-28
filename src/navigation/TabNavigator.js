@@ -7,14 +7,14 @@ import CollectionScreen from '../screens/CollectionScreen';
 import CompareScreen from '../screens/CompareScreen';
 import { COLORS } from '../constants/theme';
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={({ route, navigation }) => ({
         headerStyle: {
           backgroundColor: COLORS.primary,
         },
@@ -23,6 +23,15 @@ export default function TabNavigator() {
           fontWeight: '700',
           fontSize: 18,
         },
+        headerRight: () => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Profile')}
+            style={{ marginRight: 16 }}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
+            <Ionicons name="person-circle-outline" size={28} color="#FFFFFF" />
+          </TouchableOpacity>
+        ),
         tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: COLORS.textSecondary,
         tabBarStyle: styles.tabBar,
@@ -49,7 +58,7 @@ export default function TabNavigator() {
         component={HomeScreen}
         options={{
           title: 'Explorer',
-          headerTitle: 'Pokémon Explorer',
+          headerTitle: 'PokéTinder',
         }}
       />
       <Tab.Screen

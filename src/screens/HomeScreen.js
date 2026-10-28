@@ -34,16 +34,25 @@ export default function HomeScreen({ navigation }) {
   // Configure header button for Home screen
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: 'Pokémon Explorer',
+      headerTitle: 'PokéTinder',
       headerRight: () => (
-        <TouchableOpacity
-          onPress={handleRandomPokemon}
-          style={styles.headerButton}
-          activeOpacity={0.8}
-        >
-          <Ionicons name="dice-outline" size={20} color="#FFFFFF" />
-          <Text style={styles.headerButtonText}>Random</Text>
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginRight: 4 }}>
+          <TouchableOpacity
+            onPress={handleRandomPokemon}
+            style={styles.headerButton}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="dice-outline" size={18} color="#FFFFFF" />
+            <Text style={styles.headerButtonText}>Random</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Profile')}
+            style={{ marginLeft: 10, padding: 2 }}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
+            <Ionicons name="person-circle-outline" size={26} color="#FFFFFF" />
+          </TouchableOpacity>
+        </View>
       ),
     });
   }, [navigation]);
